@@ -5,7 +5,7 @@ clear-protogen:
 	rm -rf ./protogen
 
 generate-proto:
-	buf generate --template buf.gen.yaml
+	buf dep update && buf generate --template buf.gen.yaml
 
 run-cli:
 	gow run ./cmd/cli/*.go

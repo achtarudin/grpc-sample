@@ -2,6 +2,8 @@ syntax = "proto3";
       
 package hello.v1;                   
 
+import "google/protobuf/timestamp.proto";
+
 option go_package = "protogen/hello;hellov1";
 option php_namespace = "Hello\\V1";
 
@@ -11,6 +13,7 @@ message SayHelloRequest {
 
 message SayHelloResponse { 
   string message = 1;
+  google.protobuf.Timestamp created_at = 10;
 }
 
 message SayManyHellosRequest { 
@@ -19,5 +22,7 @@ message SayManyHellosRequest {
 
 message SayManyHellosResponse { 
   SayHelloResponse message = 1;
+  google.protobuf.Timestamp created_at = 10;
+  
 }
 
