@@ -9,6 +9,7 @@ package hellov1
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -68,6 +69,7 @@ func (x *SayHelloRequest) GetName() string {
 type SayHelloResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -107,6 +109,13 @@ func (x *SayHelloResponse) GetMessage() string {
 		return x.Message
 	}
 	return ""
+}
+
+func (x *SayHelloResponse) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
 }
 
 type SayManyHellosRequest struct {
@@ -156,6 +165,7 @@ func (x *SayManyHellosRequest) GetName() *SayHelloRequest {
 type SayManyHellosResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Message       *SayHelloResponse      `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -197,19 +207,32 @@ func (x *SayManyHellosResponse) GetMessage() *SayHelloResponse {
 	return nil
 }
 
+func (x *SayManyHellosResponse) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
 var File_hello_v1_hello_proto protoreflect.FileDescriptor
 
 const file_hello_v1_hello_proto_rawDesc = "" +
 	"\n" +
-	"\x14hello/v1/hello.proto\x12\bhello.v1\"%\n" +
+	"\x14hello/v1/hello.proto\x12\bhello.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"%\n" +
 	"\x0fSayHelloRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\",\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\"g\n" +
 	"\x10SayHelloResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"E\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\x129\n" +
+	"\n" +
+	"created_at\x18\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\"E\n" +
 	"\x14SayManyHellosRequest\x12-\n" +
-	"\x04name\x18\x01 \x01(\v2\x19.hello.v1.SayHelloRequestR\x04name\"M\n" +
+	"\x04name\x18\x01 \x01(\v2\x19.hello.v1.SayHelloRequestR\x04name\"\x88\x01\n" +
 	"\x15SayManyHellosResponse\x124\n" +
-	"\amessage\x18\x01 \x01(\v2\x1a.hello.v1.SayHelloResponseR\amessageBs\n" +
+	"\amessage\x18\x01 \x01(\v2\x1a.hello.v1.SayHelloResponseR\amessage\x129\n" +
+	"\n" +
+	"created_at\x18\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAtBs\n" +
 	"\fcom.hello.v1B\n" +
 	"HelloProtoP\x01Z\x16protogen/hello;hellov1\xa2\x02\x03HXX\xaa\x02\bHello.V1\xca\x02\bHello\\V1\xe2\x02\x14Hello\\V1\\GPBMetadata\xea\x02\tHello::V1b\x06proto3"
 
@@ -231,15 +254,18 @@ var file_hello_v1_hello_proto_goTypes = []any{
 	(*SayHelloResponse)(nil),      // 1: hello.v1.SayHelloResponse
 	(*SayManyHellosRequest)(nil),  // 2: hello.v1.SayManyHellosRequest
 	(*SayManyHellosResponse)(nil), // 3: hello.v1.SayManyHellosResponse
+	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_hello_v1_hello_proto_depIdxs = []int32{
-	0, // 0: hello.v1.SayManyHellosRequest.name:type_name -> hello.v1.SayHelloRequest
-	1, // 1: hello.v1.SayManyHellosResponse.message:type_name -> hello.v1.SayHelloResponse
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	4, // 0: hello.v1.SayHelloResponse.created_at:type_name -> google.protobuf.Timestamp
+	0, // 1: hello.v1.SayManyHellosRequest.name:type_name -> hello.v1.SayHelloRequest
+	1, // 2: hello.v1.SayManyHellosResponse.message:type_name -> hello.v1.SayHelloResponse
+	4, // 3: hello.v1.SayManyHellosResponse.created_at:type_name -> google.protobuf.Timestamp
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_hello_v1_hello_proto_init() }
