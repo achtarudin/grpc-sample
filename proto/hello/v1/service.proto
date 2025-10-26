@@ -1,0 +1,23 @@
+syntax = "proto3";       
+      
+package hello.v1;   
+
+import "hello/v1/hello.proto";
+
+
+option go_package = "protogen/hello;hellov1";
+option php_namespace = "Hello\\V1";
+
+service HelloService {
+  rpc SayHello(SayHelloRequest) 
+  returns (SayHelloResponse) {}
+  
+  rpc SayManyHellos(SayManyHellosRequest) 
+  returns (stream SayManyHellosResponse) {}
+
+  rpc SayHelloToEveryone(stream SayHelloRequest) 
+  returns (SayHelloResponse) {}
+
+  rpc SayHelloContinuous(stream SayHelloRequest) 
+  returns (stream SayHelloResponse) {}
+}

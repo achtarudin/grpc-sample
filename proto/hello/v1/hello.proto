@@ -1,0 +1,23 @@
+syntax = "proto3";       
+      
+package hello.v1;                   
+
+option go_package = "protogen/hello;hellov1";
+option php_namespace = "Hello\\V1";
+
+message SayHelloRequest { 
+  string name = 1;
+}
+
+message SayHelloResponse { 
+  string message = 1;
+}
+
+message SayManyHellosRequest { 
+  SayHelloRequest name = 1;
+}
+
+message SayManyHellosResponse { 
+  SayHelloResponse message = 1;
+}
+
