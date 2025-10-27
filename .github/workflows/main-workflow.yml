@@ -41,22 +41,22 @@ jobs:
           make generate-proto
 
       - name: Install dependencies
-        run: go mod download
+        run: make install-deps
 
       - name: Check for changes
         id: git-check
         run: echo "changed=$(if git status --porcelain | grep -q 'protogen/'; then echo true; else echo false; fi)" >> $GITHUB_OUTPUT
 
-      - uses: stefanzweifel/git-auto-commit-action@v6
+      - if: steps.git-check.outputs.changed == 'true'
         name: Commit generated files
-        if: steps.git-check.outputs.changed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           file_pattern: 'protogen/*'
           commit_message: "ci(proto): auto-generate protobuf files skipping CI [skip ci]"
 
-      - uses: anothrNick/github-tag-action@v1
+      - if: steps.git-check.outputs.changed == 'true'
         name: Bump version and push tag
-        if: steps.git-check.outputs.changed == 'true'
+        uses: anothrNick/github-tag-action@v1
         id: tag_version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

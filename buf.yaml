@@ -12,3 +12,4 @@ breaking:
 
 deps:
   - buf.build/protocolbuffers/wellknowntypes:v21.12
+  - buf.build/bufbuild/protovalidate
