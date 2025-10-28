@@ -21,7 +21,9 @@ message SayHelloResponse {
 }
 
 message SayManyHellosRequest { 
-  SayHelloRequest name = 1;
+  SayHelloRequest name = 1 [
+    (buf.validate.field).required = true
+  ];
 }
 
 message SayManyHellosResponse { 

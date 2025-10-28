@@ -226,9 +226,9 @@ const file_hello_v1_hello_proto_rawDesc = "" +
 	"\amessage\x18\x01 \x01(\tR\amessage\x129\n" +
 	"\n" +
 	"created_at\x18\n" +
-	" \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\"E\n" +
-	"\x14SayManyHellosRequest\x12-\n" +
-	"\x04name\x18\x01 \x01(\v2\x19.hello.v1.SayHelloRequestR\x04name\"\x88\x01\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\"M\n" +
+	"\x14SayManyHellosRequest\x125\n" +
+	"\x04name\x18\x01 \x01(\v2\x19.hello.v1.SayHelloRequestB\x06\xbaH\x03\xc8\x01\x01R\x04name\"\x88\x01\n" +
 	"\x15SayManyHellosResponse\x124\n" +
 	"\amessage\x18\x01 \x01(\v2\x1a.hello.v1.SayHelloResponseR\amessage\x129\n" +
 	"\n" +
