@@ -1,4 +1,4 @@
-module buf-grpc-sample
+module github.com/achtarudin/grpc-sample
 
 go 1.24.4
 
