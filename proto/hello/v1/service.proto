@@ -14,9 +14,9 @@ service HelloService {
   rpc SayManyHellos(SayManyHellosRequest) 
   returns (stream SayManyHellosResponse) {}
 
-  rpc SayHelloToEveryone(stream SayHelloRequest) 
-  returns (SayHelloResponse) {}
+  rpc SayHelloToEveryone(stream SayHelloToEveryoneRequest) 
+  returns (SayHelloToEveryoneResponse) {}
 
-  rpc SayHelloContinuous(stream SayHelloRequest) 
-  returns (stream SayHelloResponse) {}
+  rpc SayHelloContinuous(stream SayHelloContinuousRequest) 
+  returns (stream SayHelloContinuousResponse) {}
 }

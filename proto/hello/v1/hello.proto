@@ -21,14 +21,38 @@ message SayHelloResponse {
 }
 
 message SayManyHellosRequest { 
-  SayHelloRequest name = 1 [
-    (buf.validate.field).required = true
+  string name = 1 [
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 50
   ];
 }
 
 message SayManyHellosResponse { 
-  SayHelloResponse message = 1;
+  string message = 1;
   google.protobuf.Timestamp created_at = 10;
-  
 }
 
+message SayHelloToEveryoneRequest { 
+  string name = 1 [
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 50
+  ];
+}
+
+message SayHelloToEveryoneResponse { 
+  string message = 1;
+  google.protobuf.Timestamp created_at = 10;
+}
+
+
+message SayHelloContinuousRequest { 
+  string name = 1 [
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 50
+  ];
+}
+
+message SayHelloContinuousResponse { 
+  string message = 1;
+  google.protobuf.Timestamp created_at = 10;
+}
