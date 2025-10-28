@@ -10,6 +10,3 @@ clear-protogen:
 generate-proto:
 	buf dep update \
 	&& buf generate --template buf.gen.yaml
-
-run-cli:
-	gow run ./cmd/cli/*.go
