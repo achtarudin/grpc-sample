@@ -19,7 +19,7 @@ plugins:
       - generate_unbound_methods=true
   
   - remote: buf.build/grpc-ecosystem/openapiv2:v2.27.3
-    out: protogen/openapiv2
+    out: openapiv2
     opt:
       - allow_merge=true
       - merge_file_name=openapiv2
