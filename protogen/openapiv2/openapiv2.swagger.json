@@ -7,6 +7,9 @@
   "tags": [
     {
       "name": "HelloService"
+    },
+    {
+      "name": "ResiliencyService"
     }
   ],
   "consumes": [
@@ -163,6 +166,154 @@
           "HelloService"
         ]
       }
+    },
+    "/resiliency/v1/bidirectional-resiliency": {
+      "post": {
+        "operationId": "ResiliencyService_BidirectionalResiliency",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "$ref": "#/definitions/v1ResiliencyResponse"
+                },
+                "error": {
+                  "$ref": "#/definitions/rpcStatus"
+                }
+              },
+              "title": "Stream result of v1ResiliencyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " (streaming inputs)",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ResiliencyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ResiliencyService"
+        ]
+      }
+    },
+    "/resiliency/v1/client-resiliency": {
+      "post": {
+        "operationId": "ResiliencyService_ClientResiliency",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ResiliencyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " (streaming inputs)",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ResiliencyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ResiliencyService"
+        ]
+      }
+    },
+    "/resiliency/v1/server-resiliency": {
+      "post": {
+        "operationId": "ResiliencyService_ServerResiliency",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "$ref": "#/definitions/v1ResiliencyResponse"
+                },
+                "error": {
+                  "$ref": "#/definitions/rpcStatus"
+                }
+              },
+              "title": "Stream result of v1ResiliencyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ResiliencyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ResiliencyService"
+        ]
+      }
+    },
+    "/resiliency/v1/unary-resiliency": {
+      "post": {
+        "operationId": "ResiliencyService_UnaryResiliency",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ResiliencyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ResiliencyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ResiliencyService"
+        ]
+      }
     }
   },
   "definitions": {
@@ -191,6 +342,34 @@
             "type": "object",
             "$ref": "#/definitions/protobufAny"
           }
+        }
+      }
+    },
+    "v1ResiliencyRequest": {
+      "type": "object",
+      "properties": {
+        "min_delay_second": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "max_delay_second": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status_codes": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "v1ResiliencyResponse": {
+      "type": "object",
+      "properties": {
+        "dummy_string": {
+          "type": "string"
         }
       }
     },
