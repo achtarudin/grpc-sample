@@ -1,0 +1,44 @@
+syntax = "proto3";       
+      
+package resiliency.v1;   
+
+import "google/api/annotations.proto";
+import "resiliency/v1/resiliency.proto";
+
+option go_package = "protogen/resiliency;resiliencyv1";
+option php_namespace = "Resiliency\\V1";
+
+service ResiliencyService {
+  rpc UnaryResiliency(ResiliencyRequest) 
+  returns (ResiliencyResponse) {
+    option (google.api.http) = {
+      post: "/resiliency/v1/unary-resiliency"
+      body: "*"
+    };
+  }
+
+  rpc ServerResiliency(ResiliencyRequest) 
+  returns (stream ResiliencyResponse) {
+    option (google.api.http) = {
+      post: "/resiliency/v1/server-resiliency"
+      body: "*"
+    };
+  }
+
+  rpc ClientResiliency(stream ResiliencyRequest) 
+  returns (ResiliencyResponse) {
+    option (google.api.http) = {
+      post: "/resiliency/v1/client-resiliency"
+      body: "*"
+    };
+  }
+
+  rpc BidirectionalResiliency(stream ResiliencyRequest) 
+  returns (stream ResiliencyResponse) {
+    option (google.api.http) = {
+      post: "/resiliency/v1/bidirectional-resiliency"
+      body: "*"
+    };
+  }
+
+}
