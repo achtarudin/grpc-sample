@@ -12,7 +12,7 @@ service HelloService {
   rpc SayHello(SayHelloRequest) 
   returns (SayHelloResponse) {
     option (google.api.http) = {
-      post: "/v1/example/echo"
+      post: "/v1/hello/say-hello"
       body: "*"
     };
   }
