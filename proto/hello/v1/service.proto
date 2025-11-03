@@ -12,17 +12,32 @@ service HelloService {
   rpc SayHello(SayHelloRequest) 
   returns (SayHelloResponse) {
     option (google.api.http) = {
-      post: "/v1/hello/say-hello"
+      post: "/hello/v1/say-hello"
       body: "*"
     };
   }
   
   rpc SayManyHellos(SayManyHellosRequest) 
-  returns (stream SayManyHellosResponse) {}
+  returns (stream SayManyHellosResponse) {
+    option (google.api.http) = {
+      post: "/hello/v1/say-many-hellos"
+      body: "*"
+    };
+  }
 
   rpc SayHelloToEveryone(stream SayHelloToEveryoneRequest) 
-  returns (SayHelloToEveryoneResponse) {}
+  returns (SayHelloToEveryoneResponse) {
+    option (google.api.http) = {
+      post: "/hello/v1/say-hello-to-everyone"
+      body: "*"
+    };
+  }
 
   rpc SayHelloContinuous(stream SayHelloContinuousRequest) 
-  returns (stream SayHelloContinuousResponse) {}
+  returns (stream SayHelloContinuousResponse) {
+    option (google.api.http) = {
+      post: "/hello/v1/say-hello-continuous"
+      body: "*"
+    };
+  }
 }
