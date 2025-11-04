@@ -95,6 +95,11 @@
         ],
         "tags": [
           "HelloService"
+        ],
+        "security": [
+          {
+            "GRPC_KEY_AUTH": []
+          }
         ]
       }
     },
@@ -128,6 +133,11 @@
         ],
         "tags": [
           "HelloService"
+        ],
+        "security": [
+          {
+            "GRPC_KEY_AUTH": []
+          }
         ]
       }
     },
@@ -169,6 +179,11 @@
         ],
         "tags": [
           "HelloService"
+        ],
+        "security": [
+          {
+            "GRPC_KEY_AUTH": []
+          }
         ]
       }
     },
