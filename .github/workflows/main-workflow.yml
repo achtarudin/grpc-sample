@@ -43,7 +43,19 @@ jobs:
       - name: Install dependencies
         run: make install-deps
 
-      - name: Check for changes
+    
+      - name: Check for changes openapiv2
+        id: git-check-openapiv2
+        run: echo "changed=$(if git status --porcelain | grep -q 'openapiv2/'; then echo true; else echo false; fi)" >> $GITHUB_OUTPUT
+        
+      - if: steps.git-check-openapiv2.outputs.changed == 'true'
+        name: Commit generated files
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          file_pattern: 'openapiv2/*'
+          commit_message: "ci(openapiv2): auto-generate openapiv2 files skipping CI [skip ci]"
+
+      - name: Check for changes 
         id: git-check
         run: echo "changed=$(if git status --porcelain | grep -q 'protogen/'; then echo true; else echo false; fi)" >> $GITHUB_OUTPUT
 
@@ -51,17 +63,17 @@ jobs:
         name: Commit generated files
         uses: stefanzweifel/git-auto-commit-action@v6
         with:
-          file_pattern: 'protogen/*'
+          file_pattern: 'protogen/* openapiv2/*'
           commit_message: "ci(proto): auto-generate protobuf files skipping CI [skip ci]"
 
-      - if: steps.git-check.outputs.changed == 'true'
+      - if: steps.git-check.outputs.changed == 'true' || steps.git-check-openapiv2.outputs.changed == 'true'
         name: Bump version and push tag
         uses: anothrNick/github-tag-action@v1
         id: tag_version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_PREFIX: v
-          DEFAULT_BUMP: patch
+          DEFAULT_BUMP: ${{ steps.git-check-openapiv2.outputs.changed == 'true' && 'minor' || 'patch' }}
           
       - name: Get the created tag
         if: steps.git-check.outputs.changed == 'true'
