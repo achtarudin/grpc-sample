@@ -22,7 +22,6 @@ service HelloService {
           key: "GRPC_KEY_AUTH"
           value: {}
         }
-       
       }
     };
   }
@@ -33,6 +32,14 @@ service HelloService {
       post: "/hello/v1/say-many-hellos"
       body: "*"
     };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      security: {
+        security_requirement: {
+          key: "GRPC_KEY_AUTH"
+          value: {}
+        }
+      }
+    };
   }
 
   rpc SayHelloToEveryone(stream SayHelloToEveryoneRequest) 
@@ -41,6 +48,14 @@ service HelloService {
       post: "/hello/v1/say-hello-to-everyone"
       body: "*"
     };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      security: {
+        security_requirement: {
+          key: "GRPC_KEY_AUTH"
+          value: {}
+        }
+      }
+    };
   }
 
   rpc SayHelloContinuous(stream SayHelloContinuousRequest) 
@@ -48,6 +63,14 @@ service HelloService {
     option (google.api.http) = {
       post: "/hello/v1/say-hello-continuous"
       body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      security: {
+        security_requirement: {
+          key: "GRPC_KEY_AUTH"
+          value: {}
+        }
+      }
     };
   }
 }
