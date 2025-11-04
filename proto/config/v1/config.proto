@@ -9,8 +9,20 @@ option php_namespace = "Config\\V1";
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
-    title: "Gateway GRPC Config Service API"
-    version: "v1"
-    description: "This is the Config Service API for the GRPC Sample Gateway"
+    title: " GRPC Gateway Service API"
+    version: "1.0"
+  }
+  
+  security_definitions: {
+
+    security: {
+      key: "GRPC_KEY_AUTH"
+      value: {
+      type: TYPE_API_KEY
+      in: IN_HEADER
+      name: "GRPC_KEY_AUTH"
+    }
+    
+  }
   }
 };
