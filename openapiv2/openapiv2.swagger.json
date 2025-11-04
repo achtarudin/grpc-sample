@@ -1,9 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Gateway GRPC Config Service API",
-    "description": "This is the Config Service API for the GRPC Sample Gateway",
-    "version": "v1"
+    "title": " GRPC Gateway Service API",
+    "version": "1.0"
   },
   "tags": [
     {
@@ -453,6 +452,13 @@
           "format": "date-time"
         }
       }
+    }
+  },
+  "securityDefinitions": {
+    "GRPC_KEY_AUTH": {
+      "type": "apiKey",
+      "name": "GRPC_KEY_AUTH",
+      "in": "header"
     }
   }
 }
