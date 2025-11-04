@@ -76,5 +76,5 @@ jobs:
           DEFAULT_BUMP: ${{ steps.git-check-openapiv2.outputs.changed == 'true' && 'minor' || 'patch' }}
           
       - name: Get the created tag
-        if: steps.git-check.outputs.changed == 'true'
+        if: steps.git-check.outputs.changed == 'true' || steps.git-check-openapiv2.outputs.changed == 'true'
         run: "echo Tag Version: ${{ steps.tag_version.outputs.new_tag }}"
