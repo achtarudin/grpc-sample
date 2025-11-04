@@ -26,14 +26,20 @@ var File_hello_v1_service_proto protoreflect.FileDescriptor
 
 const file_hello_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x16hello/v1/service.proto\x12\bhello.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x14hello/v1/hello.proto\x1a.protoc-gen-openapiv2/options/annotations.proto2\xa4\x04\n" +
+	"\x16hello/v1/service.proto\x12\bhello.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x14hello/v1/hello.proto\x1a.protoc-gen-openapiv2/options/annotations.proto2\xed\x04\n" +
 	"\fHelloService\x12y\n" +
 	"\bSayHello\x12\x19.hello.v1.SayHelloRequest\x1a\x1a.hello.v1.SayHelloResponse\"6\x92A\x15b\x13\n" +
 	"\x11\n" +
-	"\rGRPC_KEY_AUTH\x12\x00\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/hello/v1/say-hello\x12x\n" +
-	"\rSayManyHellos\x12\x1e.hello.v1.SayManyHellosRequest\x1a\x1f.hello.v1.SayManyHellosResponse\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\"\x19/hello/v1/say-many-hellos0\x01\x12\x8d\x01\n" +
-	"\x12SayHelloToEveryone\x12#.hello.v1.SayHelloToEveryoneRequest\x1a$.hello.v1.SayHelloToEveryoneResponse\"*\x82\xd3\xe4\x93\x02$:\x01*\"\x1f/hello/v1/say-hello-to-everyone(\x01\x12\x8e\x01\n" +
-	"\x12SayHelloContinuous\x12#.hello.v1.SayHelloContinuousRequest\x1a$.hello.v1.SayHelloContinuousResponse\")\x82\xd3\xe4\x93\x02#:\x01*\"\x1e/hello/v1/say-hello-continuous(\x010\x01Bu\n" +
+	"\rGRPC_KEY_AUTH\x12\x00\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/hello/v1/say-hello\x12\x90\x01\n" +
+	"\rSayManyHellos\x12\x1e.hello.v1.SayManyHellosRequest\x1a\x1f.hello.v1.SayManyHellosResponse\"<\x92A\x15b\x13\n" +
+	"\x11\n" +
+	"\rGRPC_KEY_AUTH\x12\x00\x82\xd3\xe4\x93\x02\x1e:\x01*\"\x19/hello/v1/say-many-hellos0\x01\x12\xa5\x01\n" +
+	"\x12SayHelloToEveryone\x12#.hello.v1.SayHelloToEveryoneRequest\x1a$.hello.v1.SayHelloToEveryoneResponse\"B\x92A\x15b\x13\n" +
+	"\x11\n" +
+	"\rGRPC_KEY_AUTH\x12\x00\x82\xd3\xe4\x93\x02$:\x01*\"\x1f/hello/v1/say-hello-to-everyone(\x01\x12\xa6\x01\n" +
+	"\x12SayHelloContinuous\x12#.hello.v1.SayHelloContinuousRequest\x1a$.hello.v1.SayHelloContinuousResponse\"A\x92A\x15b\x13\n" +
+	"\x11\n" +
+	"\rGRPC_KEY_AUTH\x12\x00\x82\xd3\xe4\x93\x02#:\x01*\"\x1e/hello/v1/say-hello-continuous(\x010\x01Bu\n" +
 	"\fcom.hello.v1B\fServiceProtoP\x01Z\x16protogen/hello;hellov1\xa2\x02\x03HXX\xaa\x02\bHello.V1\xca\x02\bHello\\V1\xe2\x02\x14Hello\\V1\\GPBMetadata\xea\x02\tHello::V1b\x06proto3"
 
 var file_hello_v1_service_proto_goTypes = []any{
