@@ -25,8 +25,8 @@ var File_config_v1_config_proto protoreflect.FileDescriptor
 
 const file_config_v1_config_proto_rawDesc = "" +
 	"\n" +
-	"\x16config/v1/config.proto\x12\tconfig.v1\x1a.protoc-gen-openapiv2/options/annotations.protoB\xc2\x01\x92AD\x12B\n" +
-	"\x12Config Service API\x12(API for managing configuration settings.2\x02v1\n" +
+	"\x16config/v1/config.proto\x12\tconfig.v1\x1a.protoc-gen-openapiv2/options/annotations.protoB\xe1\x01\x92Ac\x12a\n" +
+	"\x1fGateway GRPC Config Service API\x12:This is the Config Service API for the GRPC Sample Gateway2\x02v1\n" +
 	"\rcom.config.v1B\vConfigProtoP\x01Z\x18protogen/config;configv1\xa2\x02\x03CXX\xaa\x02\tConfig.V1\xca\x02\tConfig\\V1\xe2\x02\x15Config\\V1\\GPBMetadata\xea\x02\n" +
 	"Config::V1b\x06proto3"
 
