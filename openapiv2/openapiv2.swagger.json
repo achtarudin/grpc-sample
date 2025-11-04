@@ -48,6 +48,11 @@
         ],
         "tags": [
           "HelloService"
+        ],
+        "security": [
+          {
+            "GRPC_KEY_AUTH": []
+          }
         ]
       }
     },
