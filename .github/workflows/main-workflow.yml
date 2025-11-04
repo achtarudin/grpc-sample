@@ -42,7 +42,6 @@ jobs:
 
       - name: Install dependencies
         run: make install-deps
-
     
       - name: Check for changes openapiv2
         id: git-check-openapiv2
@@ -73,7 +72,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_PREFIX: v
-          DEFAULT_BUMP: ${{ steps.git-check-openapiv2.outputs.changed == 'true' && 'minor' || 'patch' }}
+          DEFAULT_BUMP: ${{ steps.git-check-openapiv2.outputs.changed == 'true' && 'patch' || 'minor' }}
           
       - name: Get the created tag
         if: steps.git-check.outputs.changed == 'true' || steps.git-check-openapiv2.outputs.changed == 'true'
