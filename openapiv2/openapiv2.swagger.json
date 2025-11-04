@@ -1,8 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "hello/v1/hello.proto",
-    "version": "version not set"
+    "title": "Gateway GRPC Config Service API",
+    "description": "This is the Config Service API for the GRPC Sample Gateway",
+    "version": "v1"
   },
   "tags": [
     {
