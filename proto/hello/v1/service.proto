@@ -4,6 +4,7 @@ package hello.v1;
 
 import "google/api/annotations.proto";
 import "hello/v1/hello.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "protogen/hello;hellov1";
 option php_namespace = "Hello\\V1";
@@ -14,11 +15,14 @@ service HelloService {
     option (google.api.http) = {
       post: "/hello/v1/say-hello"
       body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
       security: {
         security_requirement: {
           key: "GRPC_KEY_AUTH"
           value: {}
         }
+       
       }
     };
   }
