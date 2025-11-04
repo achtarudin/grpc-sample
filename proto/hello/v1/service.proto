@@ -14,6 +14,12 @@ service HelloService {
     option (google.api.http) = {
       post: "/hello/v1/say-hello"
       body: "*"
+      security: {
+        security_requirement: {
+          key: "GRPC_KEY_AUTH"
+          value: {}
+        }
+      }
     };
   }
   
