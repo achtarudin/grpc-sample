@@ -190,7 +190,7 @@ Repository ini adalah **core component** untuk gRPC microservices ecosystem. Con
 
 ## 👨‍💻 Author
 
-**Achmad Ach Tarudin**
+**Achtarudin**
 - 🌐 Implementation: [grpc-server.cutbray.tech](https://grpc-server.cutbray.tech)
 - 🐙 GitHub: [@achtarudin](https://github.com/achtarudin)
 - 📦 Module: `github.com/achtarudin/grpc-sample`
